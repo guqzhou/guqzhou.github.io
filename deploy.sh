@@ -16,7 +16,7 @@ if [ -z "$VDOING" ]; then
   githubUrl=git@github.com:guqzhou/Blog.git
 else
   msg='来自 github actions的自动部署'
-  githubUrl=https://miluluyo:${VDOING}@github.com/miluluyo/vdoingBlog.git
+  githubUrl=https://miluluyo:${VDOING}@github.com/guqzhou/Blog.git
   git config --global user.name "guqzhou"
   git config --global user.email "guqzhou@163.com"
 fi
@@ -28,9 +28,9 @@ git push -f $githubUrl master:gh-pages # 推送到github
 
 
 # deploy to coding
-#echo 'www.miluluu.com\miluluu.com' > CNAME  # 自定义域名
+#echo 'www.guqzhou.com\guqzhou.com' > CNAME  # 自定义域名
 #if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
-#  codingUrl=git@e.coding.net:miluluu/miluluu.git
+#  codingUrl=git@e.coding.net:guqzhou/miluluu.git
 #else
 #  codingUrl=https://miluluu:${CODING_TOKEN}@e.coding.net/miluluu/miluluu/miluluu.git
 #fi
