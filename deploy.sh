@@ -10,21 +10,21 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github
-#echo 'b.miluluyo.github.io' > CNAME
+#echo 'b.guqzhou.github.io' > CNAME
 if [ -z "$VDOING" ]; then
   msg='deploy'
-  githubUrl=git@github.com:miluluyo/vdoingBlog.git
+  githubUrl=git@github.com:guqzhou/Blog.git
 else
   msg='来自 github actions的自动部署'
   githubUrl=https://miluluyo:${VDOING}@github.com/miluluyo/vdoingBlog.git
-  git config --global user.name "miluluyo"
-  git config --global user.email "miluluyo@163.com"
+  git config --global user.name "guqzhou"
+  git config --global user.email "guqzhou@163.com"
 fi
 git init
 git add -A
 git commit -m "${msg}"
 git push -f $githubUrl master:gh-pages # 推送到github
-#git push -f git@github.com:miluluyo/vdoingBlog.git master:gh-pages
+#git push -f git@github.com:guqzhouo/Blog.git master:gh-pages
 
 
 # deploy to coding
