@@ -7,7 +7,6 @@ module.exports = [
     items: [
       {text: '前端文章', items: [
         {text: 'JavaScript', link: '/pages/8143cc480faf9a11/'}, // 注意link结尾有斜杠和没有斜杠的区别
-        {text: 'Ts', link: '/pages/7659a3/'},
         {text: 'Vue', link: '/pages/802a1ca6f7b71c59/'},
       ]},
       {text: '学习笔记', items:[
@@ -83,6 +82,7 @@ module.exports = [
       {text: '友情链接', link: '/friends/'},
     ]
   },
+  // {text: '关于', link: '/about/'},
   {
     text: '收藏',
     link: '/pages/beb6c0bd8a66cea6/',

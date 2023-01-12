@@ -83,7 +83,7 @@ import BodyBgImg from '@theme/components/BodyBgImg'
 import { resolveSidebarItems } from '../util'
 import storage from 'good-storage' // 本地存储
 import _ from 'lodash'
-import EventBus from "@theme/util/bus.js";
+import EventBus from "../../utils/bus.js";
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 const NAVBAR_HEIGHT = 58 // 导航栏高度
@@ -220,10 +220,17 @@ export default {
     EventBus.$on('close', props => {
       this.isSidebarOpen = props
       let sideBtn = document.querySelector('.sidebar-button')
-      if(props) {
-        sideBtn.style.display = 'block'
-      } else {
-        sideBtn.style.display = 'none'
+      console.log(props)
+      switch (props) {
+        case true:
+        // sideBtn.style. = 'block'
+          break;
+          case false:
+        // sideBtn.style.display = 'none'
+        // console.log('@')
+          break;
+        default:
+          break;
       }
     })
 
