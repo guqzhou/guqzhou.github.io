@@ -1,5 +1,6 @@
 module.exports = [
   {text: '首页', link: '/'},
+  {text: '快捷导航', link: '/pages/a61e4f/'},
   {
     text: '前端',
     link: '/web/',  //目录页，vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
@@ -82,7 +83,6 @@ module.exports = [
       {text: '友情链接', link: '/friends/'},
     ]
   },
-  {text: '关于', link: '/about/'},
   {
     text: '收藏',
     link: '/pages/beb6c0bd8a66cea6/',

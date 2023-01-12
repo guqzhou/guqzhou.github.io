@@ -10,7 +10,8 @@ module.exports = {
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
     ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc'}],// 百度统计博主验证
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
-    // ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
+    ['script', { src: 'https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js' }],
   ],
   markdown: {
     lineNumbers: true // 代码行号
@@ -35,24 +36,23 @@ module.exports = {
     // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
     // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
     // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
-    //  bodyBgImg: [
-    //    'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
-    //    'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
-    //    'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
-    //  ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
+     bodyBgImg: [
+      //  'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
+      //  'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
+      //  'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
+     ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
     titleBadge: true, // 文章标题前的图标是否显示，默认true
     // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
     //   '图标地址1',
     //   '图标地址2'
     // ],
-
     sidebar: 'structuring', // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
 
-    // sidebarOpen: false, // 初始状态是否打开侧边栏，默认true
-    // updateBar: { // 最近更新栏
-    //   showToArticle: true, // 显示到文章页底部，默认true
-    //   moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
-    // },
+    sidebarOpen: true, // 初始状态是否打开侧边栏，默认true
+    updateBar: { // 最近更新栏
+      showToArticle: true, // 显示到文章页底部，默认true
+      moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
+    },
 
     author: { // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
       name: 'guqzhou', // 必需
@@ -79,7 +79,7 @@ module.exports = {
         {
           iconClass: 'icon-erji',
           title: '听音乐',
-          link: 'https://music.163.com/#/playlist?id=3137169236'
+          link: 'https://music.163.com/#/playlist?id=3135346461'
         }
       ]
     },
@@ -94,6 +94,29 @@ module.exports = {
       color: '#11a8cd', // 爱心颜色，默认随机色
       excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     }],
+    [
+      {
+        name: 'custom-plugins',
+        globalUIComponents: ["Twikoo"] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
+      }
+    ],
+
+    // Meting 插件
+    // [
+    //   'meting',
+    //   {
+    //     meting: {
+    //       server: 'netease',
+    //       type: 'playlist',
+    //       mid: '6838211960',
+    //     },
+    //     aplayer: {
+    //       lrcType: 3,
+    //       preload: 'metadata',
+    //     },
+    //     defaultCover: 'https://nyakku.moe/avatar.jpg',
+    //   },
+    // ],
 
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
@@ -155,32 +178,32 @@ module.exports = {
       }
     ],
     [
-      'vuepress-plugin-comment', // 评论
+      // 'vuepress-plugin-comment', // 评论
       // {
       //   choosen: 'valine',
       //   options: {
       //     el: '#valine-vuepress-comment',
-      //     appId: 'qnS1jobNF7CROIQ0XYWBnVOH-gzGzoHsz',
-      //     appKey: 'LIKa0ePqFMkglQfOkN0JNK6c',
+      //     appId: 'Tr3kYRXFCCFNdPBiYn2A85Y1-gzGzoHsz',
+      //     appKey: 'f5S0Ts1wqnwRF73RaXGZh7e5',
       //     avatar: 'monsterid'
       //   }
       // },
-      {
-        choosen: 'gitalk',
-        options: {
-          clientID: '714fa71d5852fd111050',
-          clientSecret: '7d111a2f0cd9c24fa53482077c4cced062f9916f',
-          repo: 'guqzhou.github.io', // GitHub 仓库
-          owner: 'guqzhou', // GitHub仓库所有者
-          admin: ['guqzhou'], // 对仓库有写权限的人
-          distractionFreeMode: false,
-          pagerDirection: 'last', // 'first'正序 | 'last'倒序
-          id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
-          title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
-          labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-          body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
-        }
-      }
+      // {
+      //   choosen: 'gitalk',
+      //   options: {
+      //     clientID: 'e249444d99d326b36efa',
+      //     clientSecret: 'de311d9362959ffc8ad4213ddaa7f92a15fa3f05',
+      //     repo: 'guqzhou.github.io', // GitHub 仓库
+      //     owner: 'guqzhou', // GitHub仓库所有者
+      //     admin: ['guqzhou'], // 对仓库有写权限的人
+      //     distractionFreeMode: false,
+      //     pagerDirection: 'last', // 'first'正序 | 'last'倒序
+      //     id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+      //     title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+      //     labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+      //     body:"页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>" // GitHub issue 的内容
+      //   }
+      // }
     ],
     [
       '@vuepress/last-updated', // "上次更新"时间格式

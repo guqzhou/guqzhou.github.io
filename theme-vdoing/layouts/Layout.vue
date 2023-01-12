@@ -19,6 +19,7 @@
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
       v-show="showSidebar"
+      ref="side"
     >
       <slot
         name="sidebar-top"
@@ -82,6 +83,7 @@ import BodyBgImg from '@theme/components/BodyBgImg'
 import { resolveSidebarItems } from '../util'
 import storage from 'good-storage' // 本地存储
 import _ from 'lodash'
+import EventBus from "@theme/util/bus.js";
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 const NAVBAR_HEIGHT = 58 // 导航栏高度
@@ -172,7 +174,8 @@ export default {
   created() {
     const sidebarOpen = this.$themeConfig.sidebarOpen
     if (sidebarOpen === false) {
-      this.isSidebarOpen = sidebarOpen 
+      this.isSidebarOpen = sidebarOpen
+  
     }
   },
   beforeMount() {
@@ -186,7 +189,6 @@ export default {
     this.setBodyClass()
   },
   mounted () {
-
     // 初始化页面时链接锚点无法跳转到指定id的解决方案
     const hash = document.location.hash;
     if (hash.length > 1) {
@@ -214,6 +216,16 @@ export default {
         setTimeout(() => {t = p},0)
       }
     }, 300))
+
+    EventBus.$on('close', props => {
+      this.isSidebarOpen = props
+      let sideBtn = document.querySelector('.sidebar-button')
+      if(props) {
+        sideBtn.style.display = 'block'
+      } else {
+        sideBtn.style.display = 'none'
+      }
+    })
 
   },
   watch: {
@@ -258,6 +270,7 @@ export default {
         this.themeMode = key
       }
       storage.set('mode', key)
+      EventBus.$emit('handleTheme', key)
     },
     
     // side swipe
