@@ -24,7 +24,6 @@ git init
 git add -A
 git commit -m "${msg}"
 git push -f git@github.com:guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
-#git push -f git@github.com:miluluyo/vdoingBlog.git master:gh-pages
 
 
 # deploy to coding
