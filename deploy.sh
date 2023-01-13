@@ -10,30 +10,29 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github
-# echo 'guqzhou.github.io' > CNAME
-# if [ -z "$GITHUB_TOKEN" ]; then
-#   msg='deploy'
-#   githubUrl=git@github.com:guqzhou/guqzhou.github.io.git
-# else
-#   githubUrl=https://guqzhou:${GITHUB_TOKEN}@github.com/guqzhou/guqzhou.github.io.git
-#   git config --global user.name "guqzhou"
-#   git config --global user.email "guqzhou@163.com"
-# fi
+# echo 'guqzhou/github.io' > CNAME 自定义域名
+if [ -z "$GITEE_RSA_PRIVATE_KEY" ]; then
+  msg='deploy'
+  githubUrl= git@github.com:guqzhou/guqzhou.github.io.git
+else
+  msg='来自github actions的自动部署'
+  githubUrl = https://guqzhou:${GITEE_RSA_PRIVATE_KEY}@github.com/guqzhou/guqzhou.github.io.git # -z 字符串 长度为0则为true；$GITEE_RSA_PRIVATE_KEY来自于github仓库`Settings/Secrets`设置的私密环境变量
+  git config --global user.name "guqzhou"
+  git config --global user.email "guqzhou@163.com"
+fi
 git init
-git config --global user.name "guqzhou"
-git config --global user.email "guqzhou@163.com"
 git add -A
-git commit -m "deploy"
+git commit -m "${msg}"
 git push -f git@github.com:guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
 #git push -f git@github.com:miluluyo/vdoingBlog.git master:gh-pages
 
 
 # deploy to coding
-#echo 'www.miluluu.com\miluluu.com' > CNAME  # 自定义域名
+#echo 'www.guqzhou.com\guqzhou.com' > CNAME  # 自定义域名
 #if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
-#  codingUrl=git@e.coding.net:miluluu/miluluu.git
+#  codingUrl=git@e.coding.net:guqzhou/guqzhou.git
 #else
-#  codingUrl=https://miluluu:${CODING_TOKEN}@e.coding.net/miluluu/miluluu/miluluu.git
+#  codingUrl=https://guqzhou:${CODING_TOKEN}@e.coding.net/guqzhou/guqzhou.git
 #fi
 #git add -A
 #git commit -m "${msg}"
