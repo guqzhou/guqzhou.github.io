@@ -14,7 +14,7 @@ cd docs/.vuepress/dist
 
 # if [ -z "$ACCESS_TOKEN" ]; then
 #   msg='deploy'
-#   githubUrl= git@github.com:guqzhou/guqzhou.github.io.git 
+#   githubUrl=git@github.com:guqzhou/guqzhou.github.io.git 
 # else
 #   msg='来自github actions的自动部署'
 #   git config --global user.name "guqzhou"
@@ -31,7 +31,7 @@ git config --global user.name "guqzhou"
 git config --global user.email "guqzhou@163.com"
 git add -A
 git commit -m "github 自动部署"
-git push -f https://guqzhou:${ACCESS_TOKEN}@github.com/guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
+git push -f https://guqzhou:$GITEE_RSA_PRIVATE_KEY@github.com/guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
 
 
 # deploy to coding
