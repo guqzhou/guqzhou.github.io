@@ -24,7 +24,7 @@ git config --global user.name "guqzhou"
 git config --global user.email "guqzhou@163.com"
 git add -A
 git commit -m "deploy"
-git push -f githubUrl=git@github.com:guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
+git push -f git@github.com:guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
 #git push -f git@github.com:miluluyo/vdoingBlog.git master:gh-pages
 
 
