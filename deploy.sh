@@ -18,7 +18,7 @@ else
   msg='来自github actions的自动部署'
   git config --global user.name "guqzhou"
   git config --global user.email "guqzhou@163.com"
-  githubUrl=https://guqzhou:${ACCESS_TOKEN}@github.com/guqzhou/guqzhou.github.io.git # -z 字符串 长度为0则为true；$GITEE_RSA_PRIVATE_KEY来自于github仓库`Settings/Secrets`设置的私密环境变量
+  githubUrl=https://guqzhou:${ACCESS_TOKEN}@github.com/guqzhou/guqzhou.github.io.git # -z 字符串 长度为0则为true；$ACCESS_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
 fi
 git init
 git add -A
