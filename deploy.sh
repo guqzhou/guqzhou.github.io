@@ -10,12 +10,12 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github
-#echo 'b.miluluyo.github.io' > CNAME
-if [ -z "$VDOING" ]; then
+echo 'guqzhou.github.io' > CNAME
+if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
   githubUrl=git@github.com:guqzhou/guqzhou.github.io.git
 else
-  githubUrl=https://guqzhou:${VDOING}@github.com/guqzhou/guqzhou.github.io.git
+  githubUrl=https://guqzhou:${GITHUB_TOKEN}@github.com/guqzhou/guqzhou.github.io.git
   git config --global user.name "guqzhou"
   git config --global user.email "guqzhou@163.com"
 fi
