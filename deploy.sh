@@ -10,19 +10,21 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github
-echo 'guqzhou.github.io' > CNAME
-if [ -z "$GITHUB_TOKEN" ]; then
-  msg='deploy'
-  githubUrl=git@github.com:guqzhou/guqzhou.github.io.git
-else
-  githubUrl=https://guqzhou:${GITHUB_TOKEN}@github.com/guqzhou/guqzhou.github.io.git
-  git config --global user.name "guqzhou"
-  git config --global user.email "guqzhou@163.com"
-fi
+# echo 'guqzhou.github.io' > CNAME
+# if [ -z "$GITHUB_TOKEN" ]; then
+#   msg='deploy'
+#   githubUrl=git@github.com:guqzhou/guqzhou.github.io.git
+# else
+#   githubUrl=https://guqzhou:${GITHUB_TOKEN}@github.com/guqzhou/guqzhou.github.io.git
+#   git config --global user.name "guqzhou"
+#   git config --global user.email "guqzhou@163.com"
+# fi
 git init
+git config --global user.name "guqzhou"
+git config --global user.email "guqzhou@163.com"
 git add -A
-git commit -m "${msg}"
-git push -f $githubUrl master:gh-pages # 推送到github
+git commit -m "deploy"
+git push -f githubUrl=git@github.com:guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
 #git push -f git@github.com:miluluyo/vdoingBlog.git master:gh-pages
 
 
