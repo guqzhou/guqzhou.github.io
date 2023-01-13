@@ -33,7 +33,6 @@ git add -A
 git commit -m "github 自动部署"
 git push -f https://guqzhou:$GITEE_RSA_PRIVATE_KEY@github.com/guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
 
-
 # deploy to coding
 #echo 'www.guqzhou.com\guqzhou.com' > CNAME  # 自定义域名
 #if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量

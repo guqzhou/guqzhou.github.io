@@ -29,7 +29,7 @@ GITHUB_REPO=git@github.com:guqzhou/guqzhou.github.io.git
 comment=$1
 
 if [ ! $comment ]; then
-comment="更新内容+action自动部署"
+comment="更新内容"
 fi
 
 git add -A
