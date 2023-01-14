@@ -7,12 +7,15 @@ module.exports = {
   base: '/', // '/<github仓库名>/'， 默认'/'
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/logo.ico' }], //favicons，资源放在public文件夹
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css' }],
     ['meta', { name: 'keywords', content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown'}],
     ['meta', { name: 'baidu-site-verification', content: 'code-jIg3DvXrGe'}],// 百度统计博主验证
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
     ['script', {src: 'https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js' }],
-    // ['script', {src: "https://unpkg.com/meting@2.0.1/dist/Meting.min.js"}],
+    ['script', {src: "https://unpkg.com/meting@2.0.1/dist/Meting.min.js"}],
+    ['script', {src: "https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"}],
+    ['script', {src: "/plugins/play.js"}]
   ],
   markdown: {
     lineNumbers: true // 代码行号
@@ -94,6 +97,11 @@ module.exports = {
     [require('./plugins/love-me'), { // 鼠标点击爱心特效
       color: '#11a8cd', // 爱心颜色，默认随机色
       excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
+    }],
+
+    [{
+      name: 'custom-plugins',
+      globalUIComponents: ["Twikoo"] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
     }],
     
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）

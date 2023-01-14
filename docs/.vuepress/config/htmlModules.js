@@ -75,7 +75,9 @@ module.exports = {
       </script>`,
   // pageTshowMode: 'article',
   pageB:
-    `<!-- 横向自适应 -->
+    `
+    
+    <!-- 横向自适应 -->
       <ins class="adsbygoogle"
           style="display:block"
           data-ad-client="ca-pub-7828333725993554"

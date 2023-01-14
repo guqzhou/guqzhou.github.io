@@ -26,6 +26,7 @@
       preload= "auto"
       listFolded = "true"
       order="random"
+      lrc-type="1"
       id="2895345897">
     </meting-js>
       <!-- id: '', // 歌曲id /播放列表id /专辑id /搜索关键字
