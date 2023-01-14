@@ -12,6 +12,8 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
     ['script', { src: 'https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js' }],
+    ['script', {src:"https://unpkg.com/meting@2.0.1/dist/Meting.min.js"}],
+    ['script', {src:"../../play-plugin/APlayer.min.js"}],
   ],
   markdown: {
     lineNumbers: true // 代码行号
@@ -94,30 +96,14 @@ module.exports = {
       color: '#11a8cd', // 爱心颜色，默认随机色
       excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     }],
+
     [
       {
         name: 'custom-plugins',
         globalUIComponents: ["Twikoo"] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
       }
-    ],
-
-    // Meting 插件
-    // [
-    //   'meting',
-    //   {
-    //     meting: {
-    //       server: 'netease',
-    //       type: 'playlist',
-    //       mid: '6838211960',
-    //     },
-    //     aplayer: {
-    //       lrcType: 3,
-    //       preload: 'metadata',
-    //     },
-    //     defaultCover: 'https://nyakku.moe/avatar.jpg',
-    //   },
-    // ],
-
+    ]
+    
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
         {

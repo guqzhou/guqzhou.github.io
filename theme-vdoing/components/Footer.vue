@@ -18,10 +18,18 @@
        | Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
       <span v-html="footer.copyrightInfo"></span>
     </template>
+    <meting-js
+      server="netease"
+      type="playlist"
+      fixed="true"
+      mutex = "true"
+      id="2895345897">
+    </meting-js>
   </div>
 </template>
 
 <script>
+import '../../play-plugin/APlayer.min.css';
 export default {
   computed: {
     social() {
