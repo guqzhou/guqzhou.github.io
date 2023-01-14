@@ -72,11 +72,11 @@ module.exports = {
           data-ad-slot="6625304284"></ins>
       <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>`,
+      </script>`
+      ,
   // pageTshowMode: 'article',
   pageB:
     `
-    
     <!-- 横向自适应 -->
       <ins class="adsbygoogle"
           style="display:block"

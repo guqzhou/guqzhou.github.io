@@ -15,7 +15,6 @@ module.exports = {
     ['script', {src: 'https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js' }],
     ['script', {src: "https://unpkg.com/meting@2.0.1/dist/Meting.min.js"}],
     ['script', {src: "https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"}],
-    ['script', {src: "/plugins/play.js"}]
   ],
   markdown: {
     lineNumbers: true // 代码行号
