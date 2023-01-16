@@ -98,10 +98,10 @@ module.exports = {
       excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
     }],
 
-    [{
-      name: 'custom-plugins',
-      globalUIComponents: ["Twikoo"] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
-    }],
+    // [{
+    //   name: 'custom-plugins',
+    //   globalUIComponents: ["Twikoo"] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
+    // }],
     
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
@@ -162,6 +162,28 @@ module.exports = {
         hm: '503f098e7e5b3a5b5d8c5fc2938af002'
       }
     ],
+
+    [
+      'vuepress-plugin-comment',
+      {
+          // 具体参数请看官网：https://valine.js.org/
+          choosen: 'valine',
+          // options 选项中的所有参数，会传给 Valine 的配置
+          options: {
+              el: '#valine-vuepress-comment',
+              appId: 'Tr3kYRXFCCFNdPBiYn2A85Y1-gzGzoHsz',
+              appKey: 'f5S0Ts1wqnwRF73RaXGZh7e5',
+              placeholder: '想要得到博主及时回复，请填写正确的邮箱哦',
+              // 有 URL、''、mp、identicon、monsterid、wavatar、retro、robohash、hide 头像选择，具体头像是什么样子，请访问 https://valine.js.org/avatar.html
+              avatar: 'wavatar',	// 默认头像
+              pageSize: 10,   // 评论列表分页，每页条数
+              visitor: true,    // 文章访问量统计
+              recordIP: false,   // 是否记录评论者 IP
+              enableQQ: true,   // 是否启用昵称框自动获取 QQ 昵称和 QQ 头像, 默认关闭
+          }
+      }
+    ],
+
     // [
       // 'vuepress-plugin-comment', // 评论
       // {
