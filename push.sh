@@ -14,8 +14,8 @@ cd docs/.vuepress/dist
 git init
 git add -A
 git commit -m "deploy"
-git push -f git@github.com:guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
-
+git pull origin git@github.com:guqzhou/guqzhou/guqzhou.github.io.git master:gh-pages
+git push -f git@github.com:guqzhou/guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
 
 cd - # 退回开始所在目录
 rm -rf docs/.vuepress/dist
@@ -36,6 +36,6 @@ rm -rf docs/.vuepress/dist
 
 # git commit -m "${comment}"    # $1 是启动该脚本传来的参数，如 sh push.sh hello，其中 hello 就会插入到 $1 处，如果想两个参数，则加 $2
 
-# git push $GITHUB_REPO   
+# git push $GITHUB_REPO
 
 
