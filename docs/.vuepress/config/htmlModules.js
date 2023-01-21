@@ -28,7 +28,7 @@ module.exports = {
       font-weight: bold;
       margin: 0 0 8px 0;
     ">公众号</p>
-    <img src="https://images.cnblogs.com/cnblogs_com/blogs/528869/galleries/1510889/t_230111091817_gzh.jpeg"  style="width:100%;" />
+    <img src="https://cdn.staticaly.com/gh/guqzhou/photo_gallery@master/blog/202301211504393.jpeg"  style="width:100%;" />
     <p>
     guqzhou，关注公众号
     </p>

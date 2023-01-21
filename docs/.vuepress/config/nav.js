@@ -5,7 +5,11 @@ module.exports = [
     text: '前端',
     link: '/web/',  //目录页，vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
     items: [
+      {text: 'Html 篇', link: '/pages/html/'},
+      {text: 'Javascript 篇', link: '/pages/javascript/'},
       {text: '前端文章', items: [
+        {text: 'Css 篇', link: '/pages/css/'},
+        {text: '微信开发', link: '/note/gzh/'},
         {text: 'JavaScript', link: '/pages/8143cc480faf9a11/'}, // 注意link结尾有斜杠和没有斜杠的区别
         {text: 'Vue', link: '/pages/802a1ca6f7b71c59/'},
       ]},
@@ -20,7 +24,7 @@ module.exports = [
     ]
   },
   {
-    text: '页面', 
+    text: '页面',
     link: '/ui/',
     items: [
       {text: 'HTML', link: '/pages/8309a5b876fc95e3/'},
@@ -55,7 +59,7 @@ module.exports = [
     ]
   },
   {
-    text: '读书派', 
+    text: '读书派',
     link: '/bookssent/',
     items: [
       {text: '摘抄收录', items: [
@@ -74,7 +78,7 @@ module.exports = [
   },
   {text: '关于', link: '/about/'},
   {
-    text: '更多', 
+    text: '更多',
     link: '/more/',
     items: [
       {text: '学习', link: '/pages/f2a556/'},
