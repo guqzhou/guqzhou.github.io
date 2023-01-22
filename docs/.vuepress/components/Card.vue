@@ -40,7 +40,6 @@
 import storage from 'good-storage' // 本地存储
 import EventBus from "../../../utils/bus.js"
 import '../../../bootstrap-5.3.0/css/bootstrap-grid.min.css'
-import '../../../play-plugin/APlayer.min.js'
 
 export default {
   props: {
