@@ -3,11 +3,13 @@
 
     <!-- banner块 s -->
     <div class="banner" :class="{'hide-banner': !showBanner}" :style="bannerBgStyle">
+      <!-- <div class="card-box">公告：块级考试的笔记本</div> -->
+      <!-- <NoticeBar :content="des"></NoticeBar> -->
       <div class="banner-conent" :style="!homeData.features && !homeData.heroImage && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="homeData.heroImage" :src="$withBase(homeData.heroImage)" :alt="homeData.heroAlt || 'hero'" />
           <h1 v-if="homeData.heroText !== null" id="main-title">{{ homeData.heroText || $title || 'Hello' }}</h1>
-          <p class="description">{{ homeData.tagline || $description || 'Welcome to your VuePress site' }}</p>
+          <p class="description">{{ homeData.tagline || $description || des }}</p>
           <p class="action" v-if="homeData.actionText && homeData.actionLink">
             <NavLink class="action-button" :item="actionLink" />
           </p>
@@ -52,7 +54,7 @@
         class="slide-banner"
         v-if="homeData.features && homeData.features.length"
         v-show="isMQMobile"
-      > 
+      >
         <div class="banner-wrapper">
           <div class="slide-banner-scroll" ref="slide">
             <div class="slide-banner-wrapper">
@@ -107,7 +109,7 @@
           v-if="homeData.postList === 'simple'"
           :length="5"
         />
-        
+
         <!-- 详情版文章列表 -->
         <template v-else-if="!homeData.postList || homeData.postList === 'detailed'">
           <PostList
@@ -134,7 +136,7 @@
           :length="10"
         />
         <TagsBar
-          v-if="$themeConfig.tag !== false && $categoriesAndTags.tags.length" 
+          v-if="$themeConfig.tag !== false && $categoriesAndTags.tags.length"
           :tagsData="$categoriesAndTags.tags"
           :length="30"
         />
@@ -142,6 +144,11 @@
           class="custom-html-box card-box"
           v-if="homeSidebarB"
           v-html="homeSidebarB"
+        ></div>
+        <div
+            class="custom-html-box card-box"
+            v-if="homeSidebarC"
+            v-html="homeSidebarC"
         ></div>
       </template>
     </MainLayout>
@@ -161,6 +168,7 @@ import BloggerBar from '@theme/components/BloggerBar'
 import CategoriesBar from '@theme/components/CategoriesBar'
 import TagsBar from '@theme/components/TagsBar'
 
+
 const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
 
 BScroll.use(Slide)
@@ -177,17 +185,24 @@ export default {
 
       total: 0, // 总长
       perPage: 10, // 每页长
-      currentPage: 1// 当前页
+      currentPage: 1,// 当前页
+
+      des: '',
+      distance: ''
     }
   },
-  components: { NavLink, MainLayout, PostList, UpdateArticle, BloggerBar, CategoriesBar, TagsBar, Pagination },
+  components: { NavLink, MainLayout, PostList, UpdateArticle, BloggerBar, CategoriesBar, TagsBar, Pagination},
   created() {
     this.total = this.$sortPosts.length
+    // 获取地理位置
+
   },
   beforeMount(){
     this.isMQMobile = window.innerWidth < MOBILE_DESKTOP_BREAKPOINT ? true : false; // vupress在打包时不能在beforeCreate(),created()访问浏览器api（如window）
   },
   mounted() {
+    document.addEventListener('pjax:complete', this.getPosition());
+    // document.addEventListener('DOMContentLoaded', this.getPosition());
     if (this.$route.query.p) {
       this.currentPage = Number(this.$route.query.p)
     }
@@ -272,12 +287,51 @@ export default {
         || document.documentElement.scrollTop
         || document.body.scrollTop
     },
+    // 获取位置
+    getPosition() {
+      $.ajax({
+				    type: 'get',
+				    url: 'https://apis.map.qq.com/ws/location/v1/ip',
+				    data: {
+				        key: 'T3EBZ-TJ7LI-YRBG2-5ZLUR-KD3OS-U6BJO',
+				        output: 'jsonp',
+				    },
+				    dataType: 'jsonp',
+				    success: res => {
+              const { result } = res
+              this.getDistance(118.8 , 32.05 ,result.location.lng, result.location.lat)
+              this.des = `欢迎来自${result.ad_info.province}${result.ad_info.city}的小伙伴，您离站点相距约${this.distance}公里，很高兴在这里与您相识`
+            }
+
+        })
+    },
+    // 计算位置
+    getDistance(e1, n1, e2, n2) {
+            const R = 6371
+            const { sin, cos, asin, PI, hypot } = Math
+
+            let getPoint = (e, n) => {
+                e *= PI / 180
+                n *= PI / 180
+                return { x: cos(n) * cos(e), y: cos(n) * sin(e), z: sin(n) }
+            }
+
+            let a = getPoint(e1, n1)
+            let b = getPoint(e2, n2)
+            let c = hypot(a.x - b.x, a.y - b.y, a.z - b.z)
+            let r = asin(c / 2) * 2 * R
+            this.distance =  Math.round(r);
+    }
   },
 
   computed: {
     homeSidebarB () {
       const { htmlModules } = this.$themeConfig
       return htmlModules ? htmlModules.homeSidebarB : ''
+    },
+    homeSidebarC () {
+      const { htmlModules } = this.$themeConfig
+      return htmlModules ? htmlModules.homeSidebarC : ''
     },
     showBanner() { // 当分页不在第一页时隐藏banner栏
       return this.$route.query.p
@@ -339,7 +393,7 @@ export default {
       position relative
       z-index 1
       overflow hidden
-      .hero 
+      .hero
         text-align center
         margin-top 3rem
         img
@@ -347,18 +401,18 @@ export default {
           max-height 240px
           display block
           margin 2rem auto 1.5rem
-        h1 
+        h1
           margin 0
           font-size 3.2rem
-        .description, .action 
-          margin 1.5rem auto
+        .description, .action
+          margin 1rem auto
 
-        .description 
-          max-width 40rem
+        .description
+          max-width 50rem
           font-size 1.1rem
           line-height 1.3
           opacity .9
-        .action-button 
+        .action-button
           display inline-block
           font-size 1.2rem
           background-color $accentColor
@@ -368,10 +422,10 @@ export default {
           box-sizing border-box
           border-bottom 1px solid darken($accentColor, 10%)
           color #fff
-          &:hover 
+          &:hover
             background-color lighten($accentColor, 10%)
       // pc端features
-      .features 
+      .features
         padding 2rem 0
         margin-top 2.5rem
         display flex
@@ -392,7 +446,7 @@ export default {
             height 10rem
             animation heart 1.2s ease-in-out 0s infinite alternate
             animation-play-state paused
-          h2 
+          h2
             font-weight 500
             font-size 1.3rem
             border-bottom none
@@ -400,12 +454,12 @@ export default {
           p
             opacity 0.8
             padding 0 .8rem
-      .feature:hover 
-        .feature-img 
+      .feature:hover
+        .feature-img
           animation-play-state: running
         h2,p
           color $accentColor
-          
+
 
     // 移动端滑动图标
     .slide-banner
@@ -422,7 +476,7 @@ export default {
           height 300px
           width 100%
           text-align center
-          a 
+          a
             // color lighten($bannerTextColor,10%)
             color inherit
             .feature-img
@@ -451,7 +505,7 @@ export default {
           opacity .9
           &.active
             opacity .5
-  
+
   // 分页不在第一页时，隐藏banner栏
   .main-wrapper
     margin-top 2rem
@@ -460,8 +514,8 @@ export default {
     & + .main-wrapper
        margin-top ($navbarHeight + .9rem)
 
-  .main-wrapper   
-    .main-left 
+  .main-wrapper
+    .main-left
       .card-box
         margin-bottom .9rem
       .pagination
@@ -495,9 +549,9 @@ export default {
             .feature-img
               width 9rem
               height 9rem
-  
+
 // 719px以下
-@media (max-width: $MQMobile)  
+@media (max-width: $MQMobile)
   .home-wrapper
     .banner
       .banner-conent
@@ -505,22 +559,22 @@ export default {
           display none!important
 
 // 419px以下
-@media (max-width: $MQMobileNarrow) 
+@media (max-width: $MQMobileNarrow)
   .home-wrapper
-    .banner-conent 
+    .banner-conent
       padding-left 1.5rem
       padding-right 1.5rem
 
-      .hero 
-        img 
+      .hero
+        img
           max-height 210px
           margin 2rem auto 1.2rem
-        h1 
+        h1
           font-size: 2rem
         h1, .description, .action
           margin: 1.2rem auto
 
-        .description 
+        .description
           font-size: 1.2rem
 
         .action-button

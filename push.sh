@@ -14,7 +14,6 @@ cd docs/.vuepress/dist
 git init
 git add -A
 git commit -m "deploy"
-git pull origin git@github.com:guqzhou/guqzhou/guqzhou.github.io.git master:gh-pages
 git push -f git@github.com:guqzhou/guqzhou/guqzhou.github.io.git master:gh-pages # 推送到github
 
 cd - # 退回开始所在目录

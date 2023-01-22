@@ -1,14 +1,19 @@
 <template>
-    <div id="tcomment"></div>
+    <div id="tcomment">
+    </div>
   </template>
   <script>
   let waitTime = 700; // 页面加载后多少毫秒后加载评论区（如果是 0ms，可能会报错）
   let archives = "/archives/"; // 归档页的 permalink
   export default {
     data() {
+      // let waitTime = 500; // 页面加载后多少毫秒后加载评论区（如果是 0ms，可能会报错）
+      // let archives = "/archives/"; // 归档页的 permalink
       return {
         twikoo: "",
         firstLoad: true,
+        waitTime: 700,
+        archives: '/archives/'
       };
     },
     mounted() {
@@ -64,14 +69,14 @@
         twikoo
           .init({
             // envId 要切换成自己的，这是评论区的 ID，一个博客只能有一个评论区 ID，用别人的评论区 ID，导致读者评论时或发送到别人的评论区里
-            envId: "https://www.guqzhou.tech",
+            envId: "https://twikoo.guqzhou.tech/",
             el: "#tcomment",
             // region: 'ap-nanjing', // 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数
             // path: 'window.location.pathname', // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
             // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/dev/src/js/utils/i18n/index.js
-            // onCommentLoaded: function () {
-            // console.log("评论加载或评论成功");
-            // },
+            onCommentLoaded: function () {
+              console.log("评论加载或评论成功");
+            },
           })
           .then(() => {
             this.loadTwikoo();
@@ -123,10 +128,15 @@
     },
   };
   </script>
-  
+
   <style>
   .twikoo .tk-comments {
     margin-top: 20px;
   }
+  .twikoo .el-textarea__inner {
+    background-image: url("../public/img/猫.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 99%;
+  }
   </style>
-  

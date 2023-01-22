@@ -1,5 +1,6 @@
 <template>
   <div class="footer">
+    <readNotice></readNotice>
     <div class="icons" v-if="social && social.icons">
       <a
         :href="item.link"
@@ -48,8 +49,12 @@
 </template>
 
 <script>
+import readNotice from '@theme/components/readNotice';
 
 export default {
+  components: {
+    readNotice
+  },
   computed: {
     social() {
       return this.$themeConfig.social
@@ -69,7 +74,7 @@ export default {
 // $mobileSidebarWidth = $sidebarWidth * 0.82
 
 .footer
-  padding 5rem 1.5rem 2.5rem 
+  padding 2rem 1.5rem 2.5rem 
   text-align center
   color #666
   box-sizing border-box

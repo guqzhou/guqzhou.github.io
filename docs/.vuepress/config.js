@@ -3,7 +3,7 @@ const htmlModules = require('./config/htmlModules.js');
 
 module.exports = {
   title: "guqzhou",
-  description: '运气交给锦鲤，你只管努力就行。', // 描述,以 <meta> 标签渲染到页面html中
+  // description: '运气交给锦鲤，你只管努力就行。', // 描述,以 <meta> 标签渲染到页面html中
   base: '/', // '/<github仓库名>/'， 默认'/'
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/logo.ico' }], //favicons，资源放在public文件夹
@@ -15,6 +15,8 @@ module.exports = {
     ['script', {src: 'https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js' }],
     ['script', {src: "https://unpkg.com/meting@2.0.1/dist/Meting.min.js"}],
     ['script', {src: "https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"}],
+    ['script', {src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"}],
+    ['script', {src: "https://unpkg.co/gsap@3/dist/gsap.min.js"}],
   ],
   markdown: {
     lineNumbers: true // 代码行号
@@ -88,7 +90,7 @@ module.exports = {
     },
     footer:{ // 页脚信息
       createYear: 2020, // 博客创建年份
-      copyrightInfo: 'guqzhou', // 博客版权信息，支持a标签
+      copyrightInfo: `guqzhou | <a href="https://icp.gov.moe/?keyword=20238188" target="_blank">萌ICP备20238188号</a>`, // 博客版权信息，支持a标签
     },
     htmlModules
   },

@@ -33,6 +33,7 @@ module.exports = {
     guqzhou，关注公众号
     </p>
     </div>`,
+    homeSidebarC: `222`,
 
   // `<!-- 纵向自适应 -->
   // <ins class="adsbygoogle"
