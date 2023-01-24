@@ -145,11 +145,8 @@
           v-if="homeSidebarB"
           v-html="homeSidebarB"
         ></div>
-        <div
-            class="custom-html-box card-box"
-            v-if="homeSidebarC"
-            v-html="homeSidebarC"
-        ></div>
+        <webInfo />
+        <WxInfo />
       </template>
     </MainLayout>
 
@@ -167,6 +164,9 @@ import Pagination from '@theme/components/Pagination'
 import BloggerBar from '@theme/components/BloggerBar'
 import CategoriesBar from '@theme/components/CategoriesBar'
 import TagsBar from '@theme/components/TagsBar'
+import WebInfo from '@theme/components/WebInfo'
+import WxInfo from '@theme/components/WxInfo'
+
 
 
 const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
@@ -191,7 +191,7 @@ export default {
       distance: ''
     }
   },
-  components: { NavLink, MainLayout, PostList, UpdateArticle, BloggerBar, CategoriesBar, TagsBar, Pagination},
+  components: { NavLink, MainLayout, PostList, UpdateArticle, BloggerBar, CategoriesBar, TagsBar, Pagination, WebInfo, WxInfo},
   created() {
     this.total = this.$sortPosts.length
     // 获取地理位置

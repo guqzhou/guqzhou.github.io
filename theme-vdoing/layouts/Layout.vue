@@ -219,19 +219,19 @@ export default {
 
     EventBus.$on('close', props => {
       this.isSidebarOpen = props
-      let sideBtn = document.querySelector('.sidebar-button')
-      console.log(props)
-      switch (props) {
-        case true:
-        // sideBtn.style. = 'block'
-          break;
-          case false:
-        // sideBtn.style.display = 'none'
-        // console.log('@')
-          break;
-        default:
-          break;
-      }
+      // let sideBtn = document.querySelector('.sidebar-button')
+      // console.log(props)
+      // switch (props) {
+      //   case true:
+      //   // sideBtn.style. = 'block'
+      //     break;
+      //     case false:
+      //   // sideBtn.style.display = 'none'
+      //   // console.log('@')
+      //     break;
+      //   default:
+      //     break;
+      // }
     })
 
   },
@@ -298,7 +298,7 @@ export default {
           this.toggleSidebar(false)
         }
       }
-    }
+    },
   }
 }
 </script>

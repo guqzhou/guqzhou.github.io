@@ -29,6 +29,7 @@
             {{item}}
           </router-link>
         </div>
+        <PageInfo style="margin-left: 0" />
       </div>
     </div>
   </div>
@@ -36,9 +37,12 @@
   
 <script>
 import encodeMixin from '../mixins/encodeUrl'
+import PageInfo from '@theme/components/PageInfo'
+
 
 export default {
   mixins: [encodeMixin],
+  components: { PageInfo },
   data() {
     return {
       articleInfo: {}

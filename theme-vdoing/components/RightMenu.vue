@@ -51,7 +51,7 @@ export default {
   margin-right -($rightMenuWidth + 60px)
   position sticky
   top 0
-  font-size .9rem
+  font-size .8rem
   .right-menu-margin
     margin-top ($navbarHeight + 1rem)
   .right-menu-content
@@ -66,6 +66,9 @@ export default {
       overflow-y auto
     .right-menu-item
       padding 4px 15px
+      overflow hidden;
+      white-space nowrap;
+      text-overflow ellipsis
       border-left .15rem solid var(--borderColor)
       &.level3
         padding-left 28px

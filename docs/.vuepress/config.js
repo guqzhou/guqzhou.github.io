@@ -1,9 +1,11 @@
 const nav = require('./config/nav.js');
 const htmlModules = require('./config/htmlModules.js');
+const { readFileList, readTotalFileWords, readEachFileWords } = require('./webSiteInfo/readFile');
+
 
 module.exports = {
   title: "guqzhou",
-  // description: '运气交给锦鲤，你只管努力就行。', // 描述,以 <meta> 标签渲染到页面html中
+  // description: '当你转身的时候，身后的太阳就会照向你', // 描述,以 <meta> 标签渲染到页面html中
   base: '/', // '/<github仓库名>/'， 默认'/'
   head: [ // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/logo.ico' }], //favicons，资源放在public文件夹
@@ -13,10 +15,13 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
     ['script', {src: 'https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js' }],
-    ['script', {src: "https://unpkg.com/meting@2.0.1/dist/Meting.min.js"}],
+    ['script', {src: "https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"}],
     ['script', {src: "https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"}],
     ['script', {src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"}],
     ['script', {src: "https://unpkg.co/gsap@3/dist/gsap.min.js"}],
+    ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }], // 谷歌浏览器网站统计不准确性
+    ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_3865008_vm4ka2g2vxo.css' }]
+
   ],
   markdown: {
     lineNumbers: true // 代码行号
@@ -40,8 +45,8 @@ module.exports = {
     // category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
     // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
     // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
-    // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
-    //  bodyBgImg: [
+     categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
+     //  bodyBgImg: [
       //  'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
       //  'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
       //  'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
@@ -66,7 +71,7 @@ module.exports = {
     blogger:{ // 博主信息，显示在首页侧边栏
       avatar: '/img/TX.png',
       name: 'guqzhou',
-      slogan: '菜鸟一枚，希望可以与大佬多交流'
+      slogan: '喜欢所以去追求！'
     },
     social:{ // 社交图标，显示于博主信息栏和页脚栏
       // iconfontCssFile: '//at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自由添加
@@ -89,10 +94,25 @@ module.exports = {
       ]
     },
     footer:{ // 页脚信息
-      createYear: 2020, // 博客创建年份
+      createYear: 2021, // 博客创建年份
       copyrightInfo: `guqzhou | <a href="https://icp.gov.moe/?keyword=20238188" target="_blank">萌ICP备20238188号</a>`, // 博客版权信息，支持a标签
     },
-    htmlModules
+    htmlModules,
+    // 站点配置（首页 & 文章页）
+    blogInfo: {
+      blogCreate: '2021-11-11', // 博客创建时间
+      indexView: true,  // 开启首页的访问量和排名统计，默认 true（开启）
+      pageView: true,  // 开启文章页的浏览量统计，默认 true（开启）
+      readingTime: true,  // 开启文章页的预计阅读时间，条件：开启 eachFileWords，默认 true（开启）。可在 eachFileWords 的 readEachFileWords 的第二个和第三个参数自定义，默认 1 分钟 300 中文、160 英文
+      eachFileWords: readEachFileWords([''], 300, 160),  // 开启每个文章页的字数。readEachFileWords(['xx']) 关闭 xx 目录（可多个，可不传参数）下的文章页字数和阅读时长，后面两个参数分别是 1 分钟里能阅读的中文字数和英文字数。无默认值。readEachFileWords() 方法默认排除了 article 为 false 的文章
+      mdFileCountType: 'archives',  // 开启文档数。1. archives 获取归档的文档数（默认）。2. 数组 readFileList(['xx']) 排除 xx 目录（可多个，可不传参数），获取其他目录的文档数。提示：readFileList() 获取 docs 下所有的 md 文档（除了 `.vuepress` 和 `@pages` 目录下的文档）
+      totalWords: 'archives',  // 开启本站文档总字数。1. archives 获取归档的文档数（使用 archives 条件：传入 eachFileWords，否则报错）。2. readTotalFileWords(['xx']) 排除 xx 目录（可多个，可不传参数），获取其他目录的文章字数。无默认值
+      moutedEvent: '.tags-wrapper',   // 首页的站点模块挂载在某个元素后面（支持多种选择器），指的是挂载在哪个兄弟元素的后面，默认是热门标签 '.tags-wrapper' 下面，提示：'.categories-wrapper' 会挂载在文章分类下面。'.blogger-wrapper' 会挂载在博客头像模块下面
+      // 下面两个选项：第一次获取访问量失败后的迭代时间
+      indexIteration: 2500,   // 如果首页获取访问量失败，则每隔多少时间后获取一次访问量，直到获取成功或获取 10 次后。默认 3 秒。注意：设置时间太低，可能导致访问量 + 2、+ 3 ......
+      pageIteration: 2500,    // 如果文章页获取访问量失败，则每隔多少时间后获取一次访问量，直到获取成功或获取 10 次后。默认 3 秒。注意：设置时间太低，可能导致访问量 + 2、+ 3 ......
+      // 说明：成功获取一次访问量，访问量 + 1，所以第一次获取失败后，设置的每个隔段重新获取时间，将会影响访问量的次数。如 100 可能每次获取访问量 + 3
+    }
   },
   plugins: [ // 插件
     [require('./plugins/love-me'), { // 鼠标点击爱心特效
@@ -104,6 +124,7 @@ module.exports = {
       name: 'custom-plugins',
       globalUIComponents: ["Twikoo"] // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
     }],
+
 
     ['thirdparty-search', { // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
       thirdparty: [ // 可选，默认 []
@@ -224,6 +245,8 @@ module.exports = {
       }
     ]
   ],
+  
+
   // configureWebpack: {
   //   //webpack别名 如![Image from alias](~@alias/image.png)
   //   resolve: {
