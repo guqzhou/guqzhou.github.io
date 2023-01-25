@@ -37,19 +37,19 @@ jobs: # 工作流
 #           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }} # 私钥
 #        run: npm install && npm run deploy  # 执行 deploy.sh 脚本，位于项目根目录
 
-       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-         run: |
-           npm install
-           npm run build
-           cd docs/.vuepress/dist
-           cd -
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm install
+          npm run build
+          cd docs/.vuepress/dist
+          cd -
 #
-       - name: Deploy 🚀
-         uses: JamesIves/github-pages-deploy-action@4.1.5 # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
-         with:
-           token: ${{ secrets.TKOEN }}
-           branch: gh-pages # The branch the action should deploy to.
-           folder: docs/.vuepress/dist # The folder the action should deploy.
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5 # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
+        with:
+          token: ${{ secrets.TKOEN }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs/.vuepress/dist # The folder the action should deploy.
 
       - name: Push Matser To Gitee  # 步骤4：GitHub 内容同步到 Gitee，同步仓库是 master
         uses: wearerequired/git-mirror-action@master
