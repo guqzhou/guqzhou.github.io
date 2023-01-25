@@ -3,7 +3,7 @@ name: CI
 #on: [push]
 
 # 在 master 分支发生 push 事件时触发。
- on:
+on:
    push:
      branches:
        - master
