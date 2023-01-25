@@ -137,7 +137,7 @@ export default {
         margin-left 20px
         font-size .8rem
         @media (max-width: 960px)
-          margin 0 10px 0 0
+          margin 0 0.25rem 0 0
         &:before
           margin-right 3px
         a

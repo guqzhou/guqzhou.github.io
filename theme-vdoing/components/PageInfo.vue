@@ -138,7 +138,7 @@
   @media (max-width: 960px) {
     .page-view > div {
         margin-left: 0;
-        margin-right: 10px;
+        margin-right: 0.25rem;
     }
   }
 
