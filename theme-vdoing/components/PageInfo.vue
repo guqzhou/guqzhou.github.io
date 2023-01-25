@@ -137,10 +137,8 @@
   
   @media (max-width: 960px) {
     .page-view > div {
-        margin-left: 10px;
-    }
-    .page-view > div:first-child {
         margin-left: 0;
+        margin-right: 10px;
     }
   }
 
