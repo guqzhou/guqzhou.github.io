@@ -82,7 +82,7 @@ export default {
 @require '../styles/wrapper.styl'
 
 .page
-  padding-bottom 2rem
+  // padding-bottom 2rem
   display block
   @media (max-width  $MQMobile)
     padding-top ($navbarHeight)

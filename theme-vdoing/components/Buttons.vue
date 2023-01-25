@@ -79,7 +79,8 @@ export default {
       _recordScrollTop: null,
       COMMENT_SELECTOR_1: '#vuepress-plugin-comment', // 评论区元素的选择器1
       COMMENT_SELECTOR_2: '#valine-vuepress-comment', // 评论区元素的选择器2
-      COMMENT_SELECTOR_3: '.vssue' // 评论区元素的选择器3
+      COMMENT_SELECTOR_3: '.vssue', // 评论区元素的选择器3
+      COMMENT_SELECTOR_4: '#twikoo'
     }
   },
   mounted () {
@@ -146,7 +147,7 @@ export default {
 
     getCommentTop () {
       setTimeout(() => {
-        let commentEl = document.querySelector(this.COMMENT_SELECTOR_1) || document.querySelector(this.COMMENT_SELECTOR_2) || document.querySelector(this.COMMENT_SELECTOR_3)
+        let commentEl = document.querySelector(this.COMMENT_SELECTOR_1) || document.querySelector(this.COMMENT_SELECTOR_2) || document.querySelector(this.COMMENT_SELECTOR_3) || document.querySelector(this.COMMENT_SELECTOR_4)
         if (commentEl) {
           this.showCommentBut = this.$frontmatter.comment !== false && this.$frontmatter.home !== true
           this.commentTop = commentEl.offsetTop - 58
@@ -157,7 +158,7 @@ export default {
 
     scrollToComment() {
       window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
-      this._textareaEl = document.querySelector(this.COMMENT_SELECTOR_1 + ' textarea') || document.querySelector(this.COMMENT_SELECTOR_2 + ' input') || document.querySelector(this.COMMENT_SELECTOR_3 + ' textarea')
+      this._textareaEl = document.querySelector(this.COMMENT_SELECTOR_1 + ' textarea') || document.querySelector(this.COMMENT_SELECTOR_2 + ' input') || document.querySelector(this.COMMENT_SELECTOR_3 + ' textarea' || document.querySelector(this.COMMENT_SELECTOR_4 + '.el-input__inner'))
       if( this._textareaEl && this.getScrollTop() !== this._recordScrollTop) {
         document.addEventListener("scroll", this._handleListener)
       } else if (this._textareaEl && this.getScrollTop() === this._recordScrollTop) {

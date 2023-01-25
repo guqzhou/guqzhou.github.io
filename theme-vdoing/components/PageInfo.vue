@@ -135,6 +135,15 @@
     font-size: 0.8rem;
   }
   
+  @media (max-width: 960px) {
+    .page-view > div {
+        margin-left: 10px;
+    }
+    .page-view > div:first-child {
+        margin-left: 0;
+    }
+  }
+
   @keyframes turn {
     0% {
       transform: rotate(0deg);

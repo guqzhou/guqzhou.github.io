@@ -12,17 +12,17 @@ cd docs/.vuepress/dist
 # deploy to github
 # echo 'guqzhou/github.io' > CNAME 自定义域名
 
- if [ -z "$ACCESS_TOKEN" ]; then
+ if [ -z "$TOKEN" ]; then
    msg='deploy'
    githubUrl=git@github.com:guqzhou/guqzhou.github.io.git
  else
-   msg='来自github actions的自动部署'
-   githubUrl=https://guqzhou:${ACCESS_TOKEN}@github.com/guqzhou/guqzhou.github.io.git # -z 字符串 长度为0则为true；$ACCESS_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
+   msg='github自动部署'
+   git config --global user.name "guqzhou"
+   git config --global user.email "guqzhou@163.com"
+   githubUrl=https://guqzhou:${TOKEN}@github.com/guqzhou/guqzhou.github.io.git # -z 字符串 长度为0则为true；$ACCESS_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
  fi
 
  git init
- git config --global user.name "guqzhou"
- git config --global user.email "guqzhou@163.com"
  git add -A
  git commit -m "${msg}"
  git push -f $githubUrl main:gh-pages # 推送到github
