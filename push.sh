@@ -37,4 +37,4 @@
 
  git push $GITHUB_REPO
 
-
+ npm run deploy
