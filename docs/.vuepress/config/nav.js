@@ -6,7 +6,7 @@ module.exports = [
     link: '/web/',  //目录页，vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
     items: [
       {text: 'Html 篇', link: '/pages/html/'},
-      {text: 'Javascript 篇', link: '/pages/javascript/'},
+      {text: 'Javascript 基础篇', link: '/pages/1269c5/'},
       {text: '前端文章', items: [
         {text: 'Css 篇', link: '/pages/css/'},
         {text: '微信开发', link: '/note/gzh/'},
