@@ -103,10 +103,16 @@ export default {
 /**
  * 右侧菜单的自适应
  */
-@media (min-width: 720px) and (max-width: 1279px)
-  .have-rightmenu
-    .page 
-      padding-right .8rem!important
+// @media (min-width: 720px) and (max-width: 1279px)
+//   .have-rightmenu
+//     .page 
+//       padding-right 250px!important
+
+@media (min-width: 720px)
+      .theme-container.have-rightmenu 
+        .page 
+          padding-right 250px!important
+      
 
 @media (max-width: 1279px)
   .right-menu-wrapper

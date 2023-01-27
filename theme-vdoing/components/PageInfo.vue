@@ -129,6 +129,9 @@
   </script>
   
   <style scoped>
+  .page-view {
+    box-sizing: border-box;
+  }
   .page-view > div {
     float: left;
     margin-left: 20px;

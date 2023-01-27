@@ -48,16 +48,18 @@ export default {
 .right-menu-wrapper
   width $rightMenuWidth
   float right 
-  margin-right -($rightMenuWidth + 60px)
+  margin-right -($rightMenuWidth + 55px)
   position sticky
   top 0
   font-size .8rem
   .right-menu-margin
     margin-top ($navbarHeight + 1rem)
+    overflow hidden
   .right-menu-content
     max-height 80vh
     position relative
     overflow hidden
+    padding: 4px 3px 4px 0;
     &::-webkit-scrollbar-track-piece
       background none
     &::-webkit-scrollbar-thumb:vertical
@@ -66,9 +68,9 @@ export default {
       overflow-y auto
     .right-menu-item
       padding 4px 15px
-      overflow hidden;
-      white-space nowrap;
-      text-overflow ellipsis
+      // overflow hidden;
+      // white-space nowrap;
+      // text-overflow ellipsis
       border-left .15rem solid var(--borderColor)
       &.level3
         padding-left 28px
