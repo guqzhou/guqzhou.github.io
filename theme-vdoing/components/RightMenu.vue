@@ -67,10 +67,8 @@ export default {
     &:hover
       overflow-y auto
     .right-menu-item
-      padding 4px 15px
-      // overflow hidden;
-      // white-space nowrap;
-      // text-overflow ellipsis
+      padding 0 15px
+      margin 8px 0
       border-left .15rem solid var(--borderColor)
       &.level3
         padding-left 28px
