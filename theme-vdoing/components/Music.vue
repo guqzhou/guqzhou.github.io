@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import 'APlayer/dist/APlayer.min.css'
-import APlayer from 'APlayer'
 export default {
   name: "Music",
   mounted() {
@@ -29,7 +27,6 @@ export default {
       volume: 0.7, //默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
       mutex: true,
       audio: [
-
         {
           name: 'Children of the Dark (2021)',           //歌曲名称
           artist: 'Mono Inc',       //歌曲作者
