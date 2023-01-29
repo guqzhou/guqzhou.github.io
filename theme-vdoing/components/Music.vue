@@ -32,7 +32,7 @@ export default {
           artist: 'Mono Inc',       //歌曲作者
           url: 'https://music.163.com/song/media/outer/url?id=1871035439',         //歌曲源文件地址 https://music.163.com/#/song?id=26270153
           cover: 'https://p1.music.126.net/vUE_DpHq_LW9EXIgwCXIiQ==/109951166302123364.jpg?param=130y130',     //歌曲封面地址
-          lrc:  'https://cdn.back2me.cn/lrc/%E7%BE%A4%E9%9D%92.lrc',        //歌曲的歌词文件
+          lrc:  '',        //歌曲的歌词文件
           theme: '#eeeeee'        //主题颜色（优先）
         },
         {
@@ -40,7 +40,7 @@ export default {
           artist: 'Felix-zor',       //歌曲作者
           url: 'https://music.163.com/song/media/outer/url?id=1983501304',         //歌曲源文件地址 https://music.163.com/#/song?id=26270153
           cover: 'https://p2.music.126.net/fK8_Pv1MLw2ETGoNnjRZaA==/109951167898213382.jpg?param=130y130',     //歌曲封面地址
-          lrc:  'https://cdn.back2me.cn/lrc/%E7%BE%A4%E9%9D%92.lrc',        //歌曲的歌词文件
+          lrc:  '',        //歌曲的歌词文件
           theme: '#eeeeee'        //主题颜色（优先）
         },
 
@@ -49,7 +49,7 @@ export default {
           artist: '947.ASH',       //歌曲作者
           url: 'https://music.163.com/song/media/outer/url?id=1948907975',         //歌曲源文件地址 https://music.163.com/#/song?id=26270153
           cover: 'https://p2.music.126.net/-YVfvJXqLaCXiystmvQgHw==/109951167446499119.jpg?param=130y130',     //歌曲封面地址
-          lrc:  'https://cdn.back2me.cn/lrc/%E7%BE%A4%E9%9D%92.lrc',        //歌曲的歌词文件
+          lrc:  '',        //歌曲的歌词文件
           theme: '#eeeeee'        //主题颜色（优先）
         },
 
@@ -58,7 +58,7 @@ export default {
         artist: 'Baptiste Giabiconi',       //歌曲作者
         url: 'https://music.163.com/song/media/outer/url?id=26270153',         //歌曲源文件地址 https://music.163.com/#/song?id=26270153
         cover: 'https://p1.music.126.net/5VVzr_jdGXKBEjQgKnJHyg==/109951164923180357.jpg?param=130y130',     //歌曲封面地址
-        lrc:  'https://cdn.back2me.cn/lrc/%E7%BE%A4%E9%9D%92.lrc',        //歌曲的歌词文件
+        lrc:  '',        //歌曲的歌词文件
         theme: '#eeeeee'        //主题颜色（优先）
       },
         {
