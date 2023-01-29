@@ -22,7 +22,6 @@ module.exports = {
     ['script', {src: "https://unpkg.co/gsap@3/dist/gsap.min.js"}],
     ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }], // 谷歌浏览器网站统计不准确性
     ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/c/font_3865008_vm4ka2g2vxo.css' }],
-    // ['script', {src: "https://myhkw.cn/api/player/demo",id:"myhk", key:"demo", skin:"player", lr:"l", m:"1"}]
   ],
   markdown: {
     lineNumbers: true // 代码行号

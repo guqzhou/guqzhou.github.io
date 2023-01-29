@@ -85,7 +85,7 @@ import { resolveSidebarItems } from '../util'
 import storage from 'good-storage' // 本地存储
 import _ from 'lodash'
 import EventBus from "../../utils/bus.js";
-import Music from "@theme/components/Music";
+import Music from "../components/Music";
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 const NAVBAR_HEIGHT = 58 // 导航栏高度
