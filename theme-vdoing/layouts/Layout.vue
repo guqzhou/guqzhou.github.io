@@ -30,7 +30,7 @@
         #bottom
       />
     </Sidebar>
-    
+
     <!-- 首页 -->
     <Home v-if="$page.frontmatter.home"/>
 
@@ -60,12 +60,13 @@
 
     <Footer />
 
-    <Buttons 
+    <Buttons
       ref="buttons"
       @toggle-theme-mode="toggleThemeMode"
     />
 
     <BodyBgImg v-if="$themeConfig.bodyBgImg" />
+    <Music />
   </div>
 </template>
 
@@ -84,12 +85,13 @@ import { resolveSidebarItems } from '../util'
 import storage from 'good-storage' // 本地存储
 import _ from 'lodash'
 import EventBus from "../../utils/bus.js";
+import Music from "@theme/components/Music";
 
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 const NAVBAR_HEIGHT = 58 // 导航栏高度
 
 export default {
-  components: { Home, Navbar, Page, CategoriesPage, TagsPage, ArchivesPage, Sidebar, Footer, Buttons, BodyBgImg },
+  components: { Home, Navbar, Page, CategoriesPage, TagsPage, ArchivesPage, Sidebar, Footer, Buttons, BodyBgImg, Music},
 
   data () {
     return {
@@ -175,7 +177,7 @@ export default {
     const sidebarOpen = this.$themeConfig.sidebarOpen
     if (sidebarOpen === false) {
       this.isSidebarOpen = sidebarOpen
-  
+
     }
   },
   beforeMount() {
@@ -198,7 +200,7 @@ export default {
     }
 
     // 解决移动端初始化页面时侧边栏闪现的问题
-    this.showSidebar = true 
+    this.showSidebar = true
     this.$router.afterEach(() => {
       this.isSidebarOpenOfclientWidth()
     })
@@ -279,7 +281,7 @@ export default {
       storage.set('mode', key)
       EventBus.$emit('handleTheme', key)
     },
-    
+
     // side swipe
     onTouchStart (e) {
       this.touchStart = {
