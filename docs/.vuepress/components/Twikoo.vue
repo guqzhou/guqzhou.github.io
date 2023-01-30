@@ -3,7 +3,7 @@
     </div>
   </template>
   <script>
-  let waitTime = 700; // 页面加载后多少毫秒后加载评论区（如果是 0ms，可能会报错）
+  let waitTime = 500; // 页面加载后多少毫秒后加载评论区（如果是 0ms，可能会报错）
   let archives = "/archives/"; // 归档页的 permalink
   export default {
     data() {
