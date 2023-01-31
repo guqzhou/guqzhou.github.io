@@ -1,6 +1,7 @@
 module.exports = [
   {text: '首页', link: '/'},
   {text: '快捷导航', link: '/pages/a61e4f/'},
+  {text: '下载站', link: 'https://download.guqzhou.tech/'},
   {
     text: '前端',
     link: '/web/',  //目录页，vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
