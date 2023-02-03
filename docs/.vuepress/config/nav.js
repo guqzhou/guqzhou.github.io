@@ -115,10 +115,10 @@ module.exports = [
     items: [
       {text: '主站CDN',link: 'https://guqzhou.tech'},
       {text: 'Vercel', link: 'https://vercel.guqzhou.tech'},
-      {text: 'Replit', link: 'https://replit.guqzhou.tech/'},
+      // {text: 'Replit', link: 'https://replit.guqzhou.tech/'},
       {text: 'Netlify', link: 'https://netlify.guqzhou.tech/'},
       {text: 'Github', link: 'https://github.guqzhou.tech/'},
     ]
   }
-  
+
 ]
