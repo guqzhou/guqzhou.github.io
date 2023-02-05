@@ -8,6 +8,8 @@ module.exports = [
     items: [
       {text: 'Html 篇', link: '/pages/html/'},
       {text: 'Javascript 基础篇', link: '/pages/1269c5/'},
+      {text: '框架', items: [
+      // {text: 'Vue2', link: '/frame/vue2/1326d8/'}]},
       {text: '前端文章', items: [
         {text: 'Css 篇', link: '/pages/css/'},
         {text: '微信开发', link: '/note/gzh/'},
