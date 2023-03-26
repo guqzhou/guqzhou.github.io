@@ -299,7 +299,8 @@ export default {
 				    dataType: 'jsonp',
 				    success: res => {
               const { result } = res
-              this.getDistance(118.8 , 32.05 ,result.location.lng, result.location.lat)
+              // this.getDistance(118.8 , 32.05 ,result.location.lng, result.location.lat)
+              this.getDistance(99.52 , 25.05 ,result.location.lng, result.location.lat)
               this.des = `欢迎来自${result.ad_info.province}${result.ad_info.city}的小伙伴，您离站点相距约${this.distance}公里，很高兴在这里与您相识`
             }
 
