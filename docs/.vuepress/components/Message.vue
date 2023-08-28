@@ -333,10 +333,6 @@ export default {
         ],
         schoolList: [
           {
-            title: '龙街小学',
-            color: 'red',
-          },
-          {
             title: '南涧二中',
             color: 'green',
           },
@@ -359,12 +355,10 @@ export default {
       bgImg() {
         let src
         if(this.currentIndex === 0) {
-          src = require('../public/img/昆明.png')
-        } else if(this.currentIndex === 1) {
           src = require('../public/img/二中.png')
-        } else if(this.currentIndex === 2) {
+        } else if(this.currentIndex === 1) {
           src =  require('../public/img/南涧.png')
-        }else if(this.currentIndex === 3) {
+        } else if(this.currentIndex === 2) {
           src = require('../public/img/焦作.png')
         }
         return src
@@ -374,7 +368,7 @@ export default {
     methods: {
       init() {
         setInterval(() => {
-            if(this.currentIndex > 2) {
+            if(this.currentIndex > 1) {
               this.currentIndex = -1
             }
             this.currentIndex ++
