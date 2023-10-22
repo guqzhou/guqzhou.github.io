@@ -16,7 +16,7 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#11a8cd'}], // 移动浏览器主题颜色
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
     ['script', {src: 'https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js' }],
-    // ['script', {src: "https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"}],
+    ['script', {src: "https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"}],
     ['script', {src: "https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"}],
     ['script', {src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"}],
     ['script', {src: "https://unpkg.co/gsap@3/dist/gsap.min.js"}],

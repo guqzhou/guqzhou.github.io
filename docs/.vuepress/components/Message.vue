@@ -203,6 +203,11 @@
         </li>
       </ul> -->
     <!-- </div> -->
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="60198">
+    </meting-js>
   </div>
 </template>
 
