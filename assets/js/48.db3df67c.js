@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[48],{404:function(n,e,t){"use strict";t.r(e);var u={name:"Music",mounted(){}},c=t(22),s=Object(c.a)(u,(function(){return(0,this._self._c)("div")}),[],!1,null,"4bc2bf98",null);e.default=s.exports}}]);
