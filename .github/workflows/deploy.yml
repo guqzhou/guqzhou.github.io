@@ -3,8 +3,8 @@ name: Deploy VuePress Blog
 on:
   push:
     branches:
-      - master # 或者 master，根据您的主分支名称调整
-  workflow_dispatch: # 允许手动触发
+      - master
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 获取所有历史记录，用于 lastUpdated 功能
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -52,4 +52,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/.vuepress/dist
-          # cname: guqzhou.eu.org # 自定义域名
+          cname: www.guqzhou.eu.org

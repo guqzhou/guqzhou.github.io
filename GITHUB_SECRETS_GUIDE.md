@@ -1,0 +1,73 @@
+# GitHub Secrets 配置指南
+
+## 需要添加的 3 个 Secrets
+
+请前往 GitHub 仓库设置页面添加以下 Secrets：
+
+**路径**: `https://github.com/guqzhou/guqzhou.github.io/settings/secrets/actions`
+
+### 1. GCP_VM_HOST
+```
+35.212.244.3
+```
+
+### 2. GCP_VM_USER
+```
+guqzhou
+```
+(如果不确定，请在 VM 上执行 `whoami` 查看)
+
+### 3. GCP_SSH_PRIVATE_KEY
+```
+-----BEGIN OPENSSH PRIVATE KEY-----
+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
+-----END OPENSSH PRIVATE KEY-----
+```
+
+## 添加步骤
+
+1. 打开链接: https://github.com/guqzhou/guqzhou.github.io/settings/secrets/actions
+2. 点击 "New repository secret"
+3. 依次添加上面 3 个 Secret
+4. 完成后推送代码测试自动部署
+
+## 验证
+
+推送代码后，访问以下地址验证部署：
+- GitHub Pages: https://www.guqzhou.eu.org
+- GCP VM: http://35.212.244.3
