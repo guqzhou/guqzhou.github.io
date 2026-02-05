@@ -10,7 +10,7 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github
-# echo 'guqzhou/github.io' > CNAME 自定义域名
+echo 'www.guqzhou.eu.org' > CNAME
 
  if [ -z "$TOKEN" ]; then
    msg='deploy'
