@@ -74,3 +74,19 @@ body .vuepress-plugin-demo-block__wrapper
 .vinput:focus 
     borderBottomColor: #3995dc !important
 
+// 右侧菜单样式优化
+.right-menu-wrapper .right-menu-content .right-menu-item
+  border-left: none !important
+
+.right-menu-wrapper .right-menu-content .right-menu-item.active
+  color: #11A8CD !important
+  border-left: 3px solid #11A8CD !important
+  background-color: rgba(17, 168, 205, 0.1) !important
+
+// 移除列表项之间的间距
+.theme-vdoing-content ul li
+  margin-bottom: 0
+  padding-left: 0
+
+.theme-vdoing-content ul
+  padding-left: 1.2em
